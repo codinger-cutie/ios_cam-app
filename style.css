@@ -1,0 +1,108 @@
+body {
+    font-size: 15pt;
+    background-color: slategray;
+    /*background-image: linear-gradient(#e04343, #255ba1);*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+p {
+    user-select: none;
+}
+
+.bottom {
+    position: absolute;
+    bottom: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.65);
+    width: 100%;
+    padding-top: 10px;
+
+   /*min-width: 635px;
+    max-width: 2024px;
+    min-height: 220px;*/
+}
+
+.bottom #camera-modes {
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0,0,0, 0.65);
+    position: relative;
+    text-align: center;
+    margin-left: -24px;
+}
+
+.bottom #camera-modes p {
+    display: inline;
+    padding: 0 12px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.bottom #camera-modes .cam-p {
+    color: black;
+}
+
+.bottom #camera-modes .cam-p.active {
+    color: yellow;
+    background-color: #fff;
+} 
+
+.record-btn {
+    position: relative;
+    margin-top: 15px;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background-color: transparent;
+    cursor: pointer;
+    border: 3px solid #fff;
+    -webkit-tap-highlight-color: rgba(0,0,0, 0.65);
+    transition: 0.7s;
+}
+
+.record {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 59, 59);
+    transition: 0.2s;
+}
+
+.record-btn.active .record {
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+}
+
+.rec-timer {
+    background-color: #fff;
+    border: 2px solid red;
+    display: flex;
+    align-items: center;
+}
+
+.rec-timer .dot {
+    position: absolute;
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    margin-left: -25px;
+    border-radius: 100%;
+    transition: 0.3s ease-in-out;
+}
+
+.rec-timer .dot.active {
+    background-color: rgb(255, 59, 59);
+}
+
+.cam-p {background-color: #fff;}
+.cam-p.active {background-color: yellow;}
