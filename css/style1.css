@@ -1,55 +1,108 @@
-console.log('Hello World!');
-
-var rec = 0;
-var hours = 0;
-var minutes = 0;
-var count = 0;
-var len = count.length;
-
-const recBtn = document.querySelector(".record-btn");
-const recTime = document.querySelector("#rec-time");
-const recDot = document.querySelector(".dot");
-const camMode = document.getElementsByClassName(".cam-p")
-
-recBtn.classList.add("active");
-
-setInterval(logger, 1000)
-
-function logger () {
-    console.log("Hello World!");
-    count++;
-    console.log(count);
-    
-    if (rec === 0) {
-        recTime.innerText="Nothing to see here...";
-        recDot.classList.remove("active");
-    } else {
-        recTime.innerText = "recording..."+ hours +":"+ minutes +":"+ count;
-        recDot.classList.toggle("active");
-    }
-
-    if (count > 59) {count = 0; minutes++;}
-    if (minutes > 59) {minutes = 0; hours++;}
+body {
+    font-size: 15pt;
+    background-color: slategray;
+    /*background-image: linear-gradient(#e04343, #255ba1);*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-recBtn.addEventListener("click", () =>{
-    recBtn.classList.toggle("active")
-    hours = 0; minutes = 0; count = 0;
-    if (rec === 0) {
-        recTime.innerText = "Nothing to see here...";
-        rec = 1;
-    } else {
-        recTime.innerText = "recording..."+ count;
-        rec = 0;
-    }
-})
-
-var header = document.getElementById("camera-modes");
-var btns = header.getElementsByClassName("cam-p");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function() {
-  var current = document.getElementsByClassName("active");
-  current[0].classList.remove("active");
-  this.classList.add("active");
-  });
+p {
+    user-select: none;
 }
+
+.bottom {
+    position: absolute;
+    bottom: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.65);
+    width: 100%;
+    padding-top: 10px;
+
+   /*min-width: 635px;
+    max-width: 2024px;
+    min-height: 220px;*/
+}
+
+.bottom #camera-modes {
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0,0,0, 0.65);
+    position: relative;
+    text-align: center;
+    margin-left: -24px;
+}
+
+.bottom #camera-modes p {
+    display: inline;
+    padding: 0 12px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.bottom #camera-modes .cam-p {
+    color: black;
+}
+
+.bottom #camera-modes .cam-p.active {
+    color: yellow;
+    background-color: #fff;
+} 
+
+.record-btn {
+    position: relative;
+    margin-top: 15px;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background-color: transparent;
+    cursor: pointer;
+    border: 3px solid #fff;
+    -webkit-tap-highlight-color: rgba(0,0,0, 0.65);
+    transition: 0.7s;
+}
+
+.record {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 59, 59);
+    transition: 0.2s;
+}
+
+.record-btn.active .record {
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+}
+
+.rec-timer {
+    background-color: #fff;
+    border: 2px solid red;
+    display: flex;
+    align-items: center;
+}
+
+.rec-timer .dot {
+    position: absolute;
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    margin-left: -25px;
+    border-radius: 100%;
+    transition: 0.3s ease-in-out;
+}
+
+.rec-timer .dot.active {
+    background-color: rgb(255, 59, 59);
+}
+
+.cam-p {background-color: #fff;}
+.cam-p.active {background-color: yellow;}
