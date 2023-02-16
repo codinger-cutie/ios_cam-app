@@ -44,6 +44,7 @@ recBtn.addEventListener("click", () =>{
     }
 })
 
+/* buggy code from https://www.w3schools.com/howto/howto_js_active_element.asp
 var header = document.getElementById("camera-modes");
 var btns = header.getElementsByClassName("cam-p");
 for (var i = 0; i < btns.length; i++) {
@@ -53,3 +54,4 @@ for (var i = 0; i < btns.length; i++) {
   this.classList.add("active");
   });
 }
+*/
